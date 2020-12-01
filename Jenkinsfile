@@ -16,9 +16,14 @@ pipeline {
             sh 'git clone https://github.com/professorisidro/testador'
          }
       }
-      stage ('Build'){
+      stage ('Test'){
          steps{
-            sh 'mvn clean'
+            sh 'mvn test'
+         }
+      }
+      stage ('Build'){
+         steps {
+            sh 'mvn clean package'
          }
       }
    }
